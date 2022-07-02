@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/kpako3rbp/frontend-project-lvl2'
+npm ci
+make: Leaving directory '/home/kpako3rbp/frontend-project-lvl2'
+ 
