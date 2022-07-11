@@ -1,0 +1,19 @@
+name: Setup and check
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Node.js 17.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '17.x' 
+          cache: 'npm' 
+      - run: make install
+      - run: make lint
+      - run: make test
+      #- name: Run Snyk
+       # uses: snyk/actions/node@master
+       # env:
+         # SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
