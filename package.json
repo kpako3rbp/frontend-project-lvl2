@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kpako3rbp/frontend-project-lvl2#readme",
   "devDependencies": {
+    "coverage": "^0.4.1",
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
