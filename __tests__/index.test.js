@@ -17,3 +17,8 @@ test('Plain gendiff', () => {
   expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(readFile('plain-result.txt'));
   expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'plain')).toEqual(readFile('plain-result.txt'));
 });
+
+test('JSON gendiff', () => {
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(readFile('json-result.json'));
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'json')).toEqual(readFile('json-result.json'));
+});
