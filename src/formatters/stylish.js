@@ -27,7 +27,7 @@ const stringify = (value, currentDepth, indent) => {
   return iter(value, currentDepth + 2);
 };
 
-const stylish = (tree, indent) => {
+const stylish = (tree, indent = '  ') => {
   const iter = (node, depth) => {
     const currentIndent = indent.repeat(depth);
 

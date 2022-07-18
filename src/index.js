@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parseFile from './parsers.js';
 import getDiffArr from './helpers.js';
-import stylish from './stylish.js';
+import doFormat from './formatters/index.js';
 
 const genDiff = (filepath1, filepath2, formatter = 'stylish') => {
   const currentPath = process.cwd();
@@ -16,16 +16,7 @@ const genDiff = (filepath1, filepath2, formatter = 'stylish') => {
 
   const tree = getDiffArr(firstObj, secondObj);
 
-  let result;
-
-  switch (formatter) {
-    case 'stylish':
-      result = stylish(tree, '  ');
-      break;
-    default:
-      console.error(`Unknown formatter: "${formatter}"`);
-  }
-  return result;
+  return doFormat(formatter, tree);
 };
 
 export default genDiff;
