@@ -9,8 +9,8 @@ const parseFile = (file, fileExt) => {
       return yaml.load(file);
 
     default:
-      console.error(`Unknown format: ${fileExt}`);
-  }  
+      return `${console.error(`Unknown format: ${fileExt}`)}`;
+  }
 };
 
 export default parseFile;

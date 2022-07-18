@@ -27,7 +27,7 @@ const plain = (tree) => {
         case 'unchanged':
           return [];
         default:
-          console.error(`Status "${status}" is unknown`);
+          return `${console.error(`Status "${status}" is unknown`)}`;
       }
     });
 

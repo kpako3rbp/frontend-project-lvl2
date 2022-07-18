@@ -45,7 +45,7 @@ const stylish = (tree, indent = '  ') => {
         case 'unchanged':
           return `${currentIndent}  ${key}: ${stringify(obj.value, depth, indent)}`;
         default:
-          console.error(`Status "${status}" is unknown`);
+          return `${console.error(`Status "${status}" is unknown`)}`;
       }
     });
 

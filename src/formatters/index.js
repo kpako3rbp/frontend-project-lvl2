@@ -11,7 +11,7 @@ const doFormat = (formatterName, tree) => {
     case 'json':
       return json(tree, '  ');
     default:
-      console.error(`Unknown formatter: "${formatterName}"`);
+      return `${console.error(`Unknown formatter: "${formatterName}"`)}`;
   }
 };
 
