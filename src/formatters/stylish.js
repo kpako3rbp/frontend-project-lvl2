@@ -33,29 +33,20 @@ const stylish = (tree, indent = '  ') => {
 
     const result = node.map((obj) => {
       const { key, value, status } = obj;
-      let line;
-
       switch (status) {
         case 'nested':
-          line = `${currentIndent}  ${key}: {\n${iter(value, depth + 2)}\n${currentIndent}  }`;
-          break;
+          return `${currentIndent}  ${key}: {\n${iter(value, depth + 2)}\n${currentIndent}  }`;
         case 'removed':
-          line = `${currentIndent}- ${key}: ${stringify(obj.value, depth, indent)}`;
-          break;
+          return `${currentIndent}- ${key}: ${stringify(obj.value, depth, indent)}`;
         case 'added':
-          line = `${currentIndent}+ ${key}: ${stringify(obj.value, depth, indent)}`;
-          break;
+          return `${currentIndent}+ ${key}: ${stringify(obj.value, depth, indent)}`;
         case 'changed':
-          line = `${currentIndent}- ${key}: ${stringify(obj.oldValue, depth, indent)}\n${currentIndent}+ ${key}: ${stringify(obj.newValue, depth, indent)}`;
-          break;
+          return `${currentIndent}- ${key}: ${stringify(obj.oldValue, depth, indent)}\n${currentIndent}+ ${key}: ${stringify(obj.newValue, depth, indent)}`;
         case 'unchanged':
-          line = `${currentIndent}  ${key}: ${stringify(obj.value, depth, indent)}`;
-          break;
+          return `${currentIndent}  ${key}: ${stringify(obj.value, depth, indent)}`;
         default:
           console.error(`Status "${status}" is unknown`);
       }
-
-      return line;
     });
 
     return result.join('\n');
