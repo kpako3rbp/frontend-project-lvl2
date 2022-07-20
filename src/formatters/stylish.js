@@ -2,9 +2,7 @@ import _ from 'lodash';
 
 const stringify = (value, currentDepth, indent) => {
   const iter = (currentValue, depth) => {
-    if (!_.isObject(currentValue)) {
-      return `${currentValue}`;
-    }
+    if (!_.isObject(currentValue)) return `${currentValue}`;
 
     const currentIndent = (currentDepth === 1)
       ? indent.repeat(depth + currentDepth)
@@ -45,7 +43,7 @@ const stylish = (tree, indent = '  ') => {
         case 'unchanged':
           return `${currentIndent}  ${key}: ${stringify(obj.value, depth, indent)}`;
         default:
-          return `${console.error(`Status "${status}" is unknown`)}`;
+          throw new Error(`Status "${status}" is unknown`);
       }
     });
 

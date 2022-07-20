@@ -1,22 +1,25 @@
 import fs from 'fs';
 import path from 'path';
 import parseFile from './parsers.js';
-import getDiffArr from './helpers.js';
+import getDiffArr from './diffarr.js';
 import doFormat from './formatters/index.js';
 
-const genDiff = (filepath1, filepath2, formatter = 'stylish') => {
+const getExtName = (filePath) => path.extname(filePath).slice(1);
+
+const getFileData = (filePath) => {
   const currentPath = process.cwd();
-  const firstFilePath = path.resolve(currentPath, filepath1);
-  const secondFilePath = path.resolve(currentPath, filepath2);
-  const firstFile = fs.readFileSync(firstFilePath, 'utf-8');
-  const secondFile = fs.readFileSync(secondFilePath, 'utf-8');
+  const absolutePath = path.resolve(currentPath, filePath);
+  const fileData = fs.readFileSync(absolutePath, 'utf-8');
+  const extName = getExtName(filePath);
+  return parseFile(fileData, extName);
+};
 
-  const firstObj = parseFile(firstFile, path.extname(firstFilePath));
-  const secondObj = parseFile(secondFile, path.extname(secondFilePath));
+const genDiff = (filepath1, filepath2, formatter = 'stylish') => {
+  const firstObj = getFileData(filepath1);
+  const secondObj = getFileData(filepath2);
+  const diffTree = getDiffArr(firstObj, secondObj);
 
-  const tree = getDiffArr(firstObj, secondObj);
-
-  return doFormat(formatter, tree);
+  return doFormat(formatter, diffTree);
 };
 
 export default genDiff;

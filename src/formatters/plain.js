@@ -1,11 +1,9 @@
 import _ from 'lodash';
 
 const outputValue = (value) => {
-  if (_.isObject(value)) {
-    return '[complex value]';
-  } if (_.isString(value)) {
-    return `'${value}'`;
-  }
+  if (_.isObject(value)) return '[complex value]';
+  if (_.isString(value)) return `'${value}'`;
+
   return value;
 };
 
@@ -27,7 +25,7 @@ const plain = (tree) => {
         case 'unchanged':
           return [];
         default:
-          return `${console.error(`Status "${status}" is unknown`)}`;
+          throw new Error(`Status "${status}" is unknown`);
       }
     });
 
