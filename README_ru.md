@@ -5,17 +5,17 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/61b29d55ced45d64cd1a/test_coverage)](https://codeclimate.com/github/kpako3rbp/frontend-project-lvl2/test_coverage)
 
 
-Read this in other languages: English | [Русский](./README_ru.md)
+Читайте на других языках: [English](./README.md) | Русский 
 
-Gendiff is a program that determines the difference between two data structures.
+Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. 
 
-Utility features:
+Возможности утилиты:
 
-- Support for different input formats: yaml, json
-- Report generation in the form of plain text, stylish and json
+- Поддержка разных входных форматов: yaml, json
+- Генерация отчета в виде plain text, stylish и json
 
 
-## Installation
+## Установка
 
 ```sh
 $ git clone git@github.com:kpako3rbp/frontend-project-lvl2.git
@@ -24,10 +24,11 @@ $ make install
 $ nmp link
 ```
 
-## Quick Start
+## Быстрый старт
 
-### Help
-Use -h or --help flag for help
+### Вывод справки
+
+Используйте флаг -h или --help для вызова справки
 
 ```sh
 $ gendiff --help
@@ -42,11 +43,10 @@ Options:
   -f, --format <type>  output format (default: "stylish")
   -h, --help           display help for command
 ```
+### Использование 
+Используйте флаг -f или --format для выбора необходимого форматтера. По умолчанию используется "stylish". Далее укажите пути к сравниваемым файлам. Программа умеет работать как с относительными, так и абсолютными путями.
 
-### Usage
-Use -f or --format flag to select the required formatter. "Stylish" set as default formatter. Next, specify the paths to the compared files. The program can work with relative and absolute paths.
-
-## Output format 'stylish'
+## Формат вывода 'stylish'
 
 ```sh
 $ gendiff file1.json file2.json
@@ -54,7 +54,7 @@ $ gendiff file1.yml file2.yaml
 ```
 [![asciicast](https://asciinema.org/a/O8ztcXJhrjtejBcG0BPYfuWKz.svg)](https://asciinema.org/a/O8ztcXJhrjtejBcG0BPYfuWKz) 
 
-## Output format 'plain'
+## Формат вывода 'plain'
 
 ```sh
 $ gendiff -f plain file1.json file2.json
@@ -62,7 +62,7 @@ $ gendiff -f plain file1.yml file2.yaml
 ```
 [![asciicast](https://asciinema.org/a/1XV0xd0bHv3gdwQdIUpf6I3SF.svg)](https://asciinema.org/a/1XV0xd0bHv3gdwQdIUpf6I3SF)
 
-## Output format 'json'
+## Формат вывода 'json'
 
 ```sh
 $ gendiff -f json file1.json file2.json
